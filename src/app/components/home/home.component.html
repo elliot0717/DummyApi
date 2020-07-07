@@ -1,23 +1,53 @@
 <div
     style="height: 95vh; background-image: url('../../../assets/images/bg1.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div class="flex-center flex-column">
-        <h2 class="h1-responsive animate__animated animate__bounce">Home page</h2>
-        <br />
-        <small>The
-            <a href="https://angular.io/docs" target="blank">Angular 9</a> Startup
-            template has:
-        </small>
-        <small>
-            <a href="https://mdbootstrap.com/docs/angular/" target="blank">Mdbootstrap</a>
-            | <a href="https://animate.style/" target="blank">Animate CSS</a> | <a href="https://lodash.com/" target="blank">Lodash</a>
-        </small>
-        <small>      
-            Route to Test and Home component set
-        </small>
-        <small>
-             HttpClientModule + FormsModule already imported at the app.module
-        </small>
-
-        <a href="https://github.com/dylut2000/MDBootstrapAngular9" target="blank" class="mt-5 animate__animated animate__fadeInDown animate__delay-3s">Add a star to this Project in Github</a>
+        <!-- search Bar -->
+        <div class="form-inline md-form form-md active-pink-2">
+            <input  [(ngModel)]="movieName" class="form-control form-control-lg mr-3 w-75" type="text" placeholder="Enter Movie Name" aria-label="Search"
+              mdbInput>
+            <mdb-icon fas icon="search" aria-hidden="true" (click)="searchMovie(movieName)"></mdb-icon>
     </div>
+          <!-- display searched movie -->
+          <!-- Section: Blog v.1 -->
+<section class="my-5">
+
+    <!-- Grid row -->
+    <div class="row">
+  
+      <!-- Grid column -->
+      <div class="col-lg-5">
+  
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+          <img class="img-fluid" [src]="movies.Poster" alt="Sample image">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+  
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col-lg-7">
+    
+        <!-- Post title -->
+        <h3 class="font-weight-bold mb-3"><strong>{{movies.Title}}</strong></h3>
+        <!-- Excerpt -->
+        <p>{{movies.Plot}}</p>
+        <!-- Post data -->
+        <p>by <a><strong>{{movies.Production}} </strong></a>on {{movies.Released}}</p>
+        
+  
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  
+    <hr class="my-5">
+  
+  </section>
+  <!-- Section: Blog v.1 -->
+
+      </div>
 </div>

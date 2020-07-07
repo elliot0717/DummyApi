@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service'
 
 // uncomment the following import in order to use Lodash
 // import * as _ from 'lodash';
@@ -10,10 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  movies : any={};
+  movieName : string;
+  
+  constructor(private apiService : ApiService) {}
 
-  ngOnInit(): void {
+  ngOnInit()
+  {
+   
+   this.getMovies();
 
   }
+
+  getMovies()
+  {
+    this.apiService.getMovies().subscribe(( movies:{}) =>
+      {
+        this.movies = movies;
+        
+      })
+  }
+
+  searchMovie(movieName)
+  {
+    this.apiService.searchMovie(movieName).subscribe((movies : {}) =>
+    {
+      this.movies = movies;
+      console.log(this.movies);
+    })
+  }
+
+  
 
 }
